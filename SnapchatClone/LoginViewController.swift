@@ -13,17 +13,19 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailLogin: UITextField!
     
     @IBOutlet weak var senhaLogin: UITextField!
-    
-    @IBAction func entrarLogin(_ sender: Any) {
-        
-    }
-    
-    
+    @IBOutlet weak var btnClose: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    @IBAction func entrarLogin(_ sender: Any) {
+        
+    }
+    
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
