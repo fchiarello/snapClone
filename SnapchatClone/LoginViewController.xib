@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="SnapchatClone" customModuleProvider="target">
+            <connections>
+                <outlet property="emailLogin" destination="S83-BM-TYC" id="XuU-Xk-2yM"/>
+                <outlet property="senhaLogin" destination="iNC-M0-Xpo" id="f1A-Lu-Vtf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="tJN-co-NuX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9V2-LJ-HWI">
+                    <rect key="frame" x="20" y="40" width="56.5" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.94901960780000005" green="0.1529411765" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vci-fj-d2f">
+                    <rect key="frame" x="20" y="162" width="56" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.94901960780000005" green="0.1529411765" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S83-BM-TYC">
+                    <rect key="frame" x="20" y="79" width="335" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*******" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iNC-M0-Xpo">
+                    <rect key="frame" x="20" y="201" width="335" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" textContentType="password"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMZ-ox-Ifi">
+                    <rect key="frame" x="120.5" y="302.5" width="134" height="62"/>
+                    <color key="backgroundColor" red="0.6366820716181556" green="0.39597726542570311" blue="0.94176316624365486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="134" id="NOm-YU-5lO"/>
+                        <constraint firstAttribute="height" constant="62" id="qSr-C2-SuQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Entrar"/>
+                    <connections>
+                        <action selector="entrarLogin:" destination="-1" eventType="touchUpInside" id="nox-Yc-gqg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xMZ-ox-Ifi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Qs-PJ-snj"/>
+                <constraint firstItem="xMZ-ox-Ifi" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="4id-Dk-9cH"/>
+                <constraint firstItem="iNC-M0-Xpo" firstAttribute="top" secondItem="vci-fj-d2f" secondAttribute="bottom" constant="15" id="7FR-8u-Awy"/>
+                <constraint firstItem="xMZ-ox-Ifi" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="9pP-b8-9KI"/>
+                <constraint firstItem="vci-fj-d2f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="DYK-7n-dKj"/>
+                <constraint firstItem="xMZ-ox-Ifi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Iwh-fa-HR3"/>
+                <constraint firstItem="S83-BM-TYC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NWo-K5-AuK"/>
+                <constraint firstItem="vci-fj-d2f" firstAttribute="top" secondItem="S83-BM-TYC" secondAttribute="bottom" constant="53" id="U0A-6n-sRu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S83-BM-TYC" secondAttribute="trailing" constant="20" id="WDx-rl-H36"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iNC-M0-Xpo" secondAttribute="trailing" constant="20" id="ZJd-iF-gFW"/>
+                <constraint firstItem="S83-BM-TYC" firstAttribute="top" secondItem="9V2-LJ-HWI" secondAttribute="bottom" constant="15" id="bz9-aQ-91W"/>
+                <constraint firstItem="S83-BM-TYC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iRJ-1D-JH2"/>
+                <constraint firstItem="iNC-M0-Xpo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ktb-hw-81v"/>
+                <constraint firstItem="9V2-LJ-HWI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mgM-ae-zKv"/>
+                <constraint firstItem="9V2-LJ-HWI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="pks-SK-P4k"/>
+                <constraint firstItem="iNC-M0-Xpo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="u59-9g-k9o"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="109.29535232383809"/>
+        </view>
+    </objects>
+</document>
