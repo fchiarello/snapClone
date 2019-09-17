@@ -32,11 +32,19 @@ class CadastroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(voltarControllerInicial))
+        setuoBarButtonItems()
+       
+    }
+    
+    func setuoBarButtonItems() {
+//        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(voltarControllerInicial))
+//        navigationItem.leftBarButtonItem = backButton
+        let backButton = UIBarButtonItem(title: "back", style: .done, target: self, action: #selector(voltarControllerInicial))
         navigationItem.leftBarButtonItem = backButton
     }
     
     @objc func voltarControllerInicial () {
+        self.navigationController?.popViewController(animated: true)
         print("VOLTOU")
     }
     
