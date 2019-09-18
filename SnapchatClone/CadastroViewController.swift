@@ -17,7 +17,7 @@ class CadastroViewController: UIViewController {
     
     @IBOutlet weak var confirmaSenhaCadastro: UITextField!
     
-    func exibirMensagem() {
+    func exibirMensagem(titulo: String, mensagem: String) {
         let alerta = UIAlertController(title: "Dados Inválidos", message: "Senha e Confirmação de Senha são diferentes!", preferredStyle: .alert)
         let acaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alerta.addAction(acaoCancelar)
@@ -35,19 +35,28 @@ class CadastroViewController: UIViewController {
                                 print("Autenticado!")
                             }else{
                                 let erroR = erro! as NSError
-                                //ERROR_INVALID_EMAIL
-                                //ERROR_WEAK_PASSWORD
-                                //ERROR_EMAIL_ALREADY_IN_USE
-                                if let codigoErro = erroR.userInfo{
+                                if let codigoErro = erroR.userInfo["error_name"]{
                                     let erroTexto = codigoErro as! String
-                                    if codigoErro == "ERROR_INVALID_EMAIL"{
-                                        
-                                    }else if erroTexto == "ERROR_WEAK_PASSWORD"
+                                    var mensagemErro = ""
+                                    switch erroTexto {
+                                    case "ERROR_INVALID_EMAIL":
+                                        mensagemErro = "E-mail digitado não é válido."
+                                        break
+                                    case "ERROR_WEAK_PASSWORD":
+                                        mensagemErro = "Senha fraca: Sua senha deve conter no mínimo 6 caracteres com letras e números!"
+                                        break
+                                    case "ERROR_EMAIL_ALREADY_IN_USE":
+                                        mensagemErro = "E-mail já cadastrado"
+                                        break
+                                    default:
+                                        mensagemErro = "Tentativa de acesso inválido"
+                                    }
+                                    self.exibirMensagem(titulo: "Dados inválidos!", mensagem: mensagemErro)
                                 }
                             }
                         }
                     }else{
-                        self.exibirMensagem()
+                        self.exibirMensagem(titulo: "Senhas divergentes!", mensagem: "As senhas digitadas não conferem.")
                     }
                 }
             }
