@@ -8,11 +8,17 @@
 
 import UIKit
 import Foundation
+import Firebase
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let autenticacao = Auth.auth()
+        autenticacao.addStateDidChangeListener { (autenticada, usuario) in
+            
+
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

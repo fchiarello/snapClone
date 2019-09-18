@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		918EDA7416BB92392E594AF3 /* Pods_SnapchatClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126084B3B76B0732C2C0CFB9 /* Pods_SnapchatClone.framework */; };
+		C93F26162332A83600BD318D /* TabelaSnapsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */; };
+		C93F26172332A83600BD318D /* TabelaSnapsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */; };
+		C93F261E2332BBF900BD318D /* SelecionaFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */; };
+		C93F261F2332BBF900BD318D /* SelecionaFotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */; };
 		C952CA69232FDED5009A4126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C952CA68232FDED5009A4126 /* GoogleService-Info.plist */; };
 		C952CA70232FF042009A4126 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952CA6E232FF042009A4126 /* LoginViewController.swift */; };
 		C952CA71232FF042009A4126 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C952CA6F232FF042009A4126 /* LoginViewController.xib */; };
@@ -24,6 +28,10 @@
 		126084B3B76B0732C2C0CFB9 /* Pods_SnapchatClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapchatClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D368644A560C0112062B6C7 /* Pods-SnapchatClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapchatClone.release.xcconfig"; path = "Target Support Files/Pods-SnapchatClone/Pods-SnapchatClone.release.xcconfig"; sourceTree = "<group>"; };
 		98357FCE3677AA97EF92BDA5 /* Pods-SnapchatClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapchatClone.debug.xcconfig"; path = "Target Support Files/Pods-SnapchatClone/Pods-SnapchatClone.debug.xcconfig"; sourceTree = "<group>"; };
+		C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelaSnapsTableViewController.swift; sourceTree = "<group>"; };
+		C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabelaSnapsTableViewController.xib; sourceTree = "<group>"; };
+		C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaFotoViewController.swift; sourceTree = "<group>"; };
+		C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelecionaFotoViewController.xib; sourceTree = "<group>"; };
 		C952CA67232FDD8A009A4126 /* SnapchatClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapchatClone.entitlements; sourceTree = "<group>"; };
 		C952CA68232FDED5009A4126 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C952CA6E232FF042009A4126 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +100,10 @@
 				C952CA6F232FF042009A4126 /* LoginViewController.xib */,
 				C952CA72232FF071009A4126 /* CadastroViewController.swift */,
 				C952CA73232FF071009A4126 /* CadastroViewController.xib */,
+				C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */,
+				C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */,
+				C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */,
+				C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */,
 			);
 			path = SnapchatClone;
 			sourceTree = "<group>";
@@ -170,7 +182,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93F26172332A83600BD318D /* TabelaSnapsTableViewController.xib in Resources */,
 				C952CA71232FF042009A4126 /* LoginViewController.xib in Resources */,
+				C93F261F2332BBF900BD318D /* SelecionaFotoViewController.xib in Resources */,
 				C99FAB15232FCF32000B478E /* LaunchScreen.storyboard in Resources */,
 				C952CA69232FDED5009A4126 /* GoogleService-Info.plist in Resources */,
 				C952CA75232FF071009A4126 /* CadastroViewController.xib in Resources */,
@@ -231,6 +245,8 @@
 				C952CA70232FF042009A4126 /* LoginViewController.swift in Sources */,
 				C99FAB0D232FCF30000B478E /* ViewController.swift in Sources */,
 				C99FAB0B232FCF30000B478E /* AppDelegate.swift in Sources */,
+				C93F26162332A83600BD318D /* TabelaSnapsTableViewController.swift in Sources */,
+				C93F261E2332BBF900BD318D /* SelecionaFotoViewController.swift in Sources */,
 				C952CA74232FF071009A4126 /* CadastroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

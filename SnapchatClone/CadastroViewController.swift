@@ -33,8 +33,9 @@ class CadastroViewController: UIViewController {
                         autenticacao.createUser(withEmail: emailR, password: senhaR) { (usuario, erro) in
                             
                             guard let erroR = erro as? NSError else {
-                                print("Autenticado!")
-                                self.exibirMensagem(titulo: "Cadastro OK", mensagem: "Cadastro efetuado com Sucesso!")
+                                print("Autenticado!")                                
+                                let snapsViewController = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
+                                self.navigationController?.pushViewController(snapsViewController, animated: true)
                                 
                                 return
                             }
