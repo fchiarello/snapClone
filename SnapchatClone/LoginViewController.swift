@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailLogin: UITextField!
     
     @IBOutlet weak var senhaLogin: UITextField!
-    @IBOutlet weak var btnClose: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +22,18 @@ class LoginViewController: UIViewController {
     @IBAction func entrarLogin(_ sender: Any) {
         
     }
+    func setuoBarButtonItems() {
+        let backButton = UIBarButtonItem(title: "back", style: .done, target: self, action: #selector(voltarControllerInicial))
+        navigationItem.leftBarButtonItem = backButton
+    }
     
-    @IBAction func close(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @objc func voltarControllerInicial () {
+        self.navigationController?.popViewController(animated: true)
+        print("VOLTOU")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
 }

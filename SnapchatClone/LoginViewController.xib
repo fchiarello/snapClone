@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="SnapchatClone" customModuleProvider="target">
             <connections>
-                <outlet property="btnClose" destination="DIh-Hd-DKL" id="cTQ-vu-pY3"/>
                 <outlet property="emailLogin" destination="S83-BM-TYC" id="XuU-Xk-2yM"/>
                 <outlet property="senhaLogin" destination="iNC-M0-Xpo" id="f1A-Lu-Vtf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="tJN-co-NuX"/>
@@ -61,43 +60,22 @@
                         <action selector="entrarLogin:" destination="-1" eventType="touchUpInside" id="nox-Yc-gqg"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIh-Hd-DKL">
-                    <rect key="frame" x="120" y="388" width="134" height="62"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="62" id="GSC-67-g7r"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="134" id="H8R-JM-QUW"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="J5f-ih-NQ8"/>
-                        <constraint firstAttribute="width" constant="134" id="zrB-jK-wCK"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Fechar"/>
-                    <connections>
-                        <action selector="close:" destination="-1" eventType="touchUpInside" id="19v-5N-jxj"/>
-                        <action selector="entrarLogin:" destination="-1" eventType="touchUpInside" id="T9K-Wp-FFg"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xMZ-ox-Ifi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Qs-PJ-snj"/>
                 <constraint firstItem="xMZ-ox-Ifi" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="4id-Dk-9cH"/>
                 <constraint firstItem="iNC-M0-Xpo" firstAttribute="top" secondItem="vci-fj-d2f" secondAttribute="bottom" constant="15" id="7FR-8u-Awy"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DIh-Hd-DKL" secondAttribute="bottom" constant="217" id="8KV-up-EJd"/>
                 <constraint firstItem="xMZ-ox-Ifi" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="9pP-b8-9KI"/>
-                <constraint firstItem="DIh-Hd-DKL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="CQk-sy-p80"/>
                 <constraint firstItem="vci-fj-d2f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="DYK-7n-dKj"/>
                 <constraint firstItem="xMZ-ox-Ifi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Iwh-fa-HR3"/>
                 <constraint firstItem="S83-BM-TYC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NWo-K5-AuK"/>
-                <constraint firstItem="DIh-Hd-DKL" firstAttribute="top" secondItem="xMZ-ox-Ifi" secondAttribute="bottom" constant="23.5" id="PaP-z0-48z"/>
                 <constraint firstItem="vci-fj-d2f" firstAttribute="top" secondItem="S83-BM-TYC" secondAttribute="bottom" constant="53" id="U0A-6n-sRu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S83-BM-TYC" secondAttribute="trailing" constant="20" id="WDx-rl-H36"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iNC-M0-Xpo" secondAttribute="trailing" constant="20" id="ZJd-iF-gFW"/>
                 <constraint firstItem="S83-BM-TYC" firstAttribute="top" secondItem="9V2-LJ-HWI" secondAttribute="bottom" constant="15" id="bz9-aQ-91W"/>
                 <constraint firstItem="S83-BM-TYC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iRJ-1D-JH2"/>
                 <constraint firstItem="iNC-M0-Xpo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ktb-hw-81v"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DIh-Hd-DKL" secondAttribute="trailing" constant="121" id="mTh-6V-bz6"/>
                 <constraint firstItem="9V2-LJ-HWI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mgM-ae-zKv"/>
                 <constraint firstItem="9V2-LJ-HWI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="pks-SK-P4k"/>
                 <constraint firstItem="iNC-M0-Xpo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="u59-9g-k9o"/>

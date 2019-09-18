@@ -35,13 +35,13 @@
                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7S-6P-dFE">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="fellipe@gmail.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7S-6P-dFE">
                     <rect key="frame" x="20" y="79" width="335" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*******" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="to7-VA-AGK">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc123" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="to7-VA-AGK">
                     <rect key="frame" x="20" y="163" width="335" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -53,7 +53,7 @@
                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*******" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TFT-TK-lul">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc123" borderStyle="roundedRect" placeholder="*******" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TFT-TK-lul">
                     <rect key="frame" x="20" y="247" width="335" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -63,10 +63,8 @@
                     <rect key="frame" x="120.5" y="302.5" width="134" height="62"/>
                     <color key="backgroundColor" red="0.63668207160000001" green="0.3959772654" blue="0.9417631662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="HU1-Sl-Zta"/>
-                        <constraint firstAttribute="width" constant="134" id="UIi-3d-Vo0"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="134" id="eRd-cy-G6E"/>
-                        <constraint firstAttribute="height" constant="62" id="hHc-RF-MtX"/>
+                        <constraint firstAttribute="width" constant="134" id="aOI-Rt-gYO"/>
+                        <constraint firstAttribute="height" constant="62" id="hTr-Ov-oNR"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,18 +79,18 @@
                 <constraint firstItem="6rP-OK-K6N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="2R9-T8-dne"/>
                 <constraint firstItem="to7-VA-AGK" firstAttribute="top" secondItem="dgy-2o-al7" secondAttribute="bottom" constant="15" id="5hZ-WQ-x73"/>
                 <constraint firstItem="k7S-6P-dFE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="6ji-HO-UO0"/>
+                <constraint firstItem="UsE-lF-iQY" firstAttribute="top" secondItem="TFT-TK-lul" secondAttribute="bottom" constant="25.5" id="Awe-45-GM7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="to7-VA-AGK" secondAttribute="trailing" constant="20" id="EkT-dJ-tu5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TFT-TK-lul" secondAttribute="trailing" constant="20" id="FLh-gh-qYL"/>
                 <constraint firstItem="TFT-TK-lul" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LNO-ez-kmh"/>
                 <constraint firstItem="to7-VA-AGK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="MUw-Jc-K9A"/>
                 <constraint firstItem="TFT-TK-lul" firstAttribute="top" secondItem="6rP-OK-K6N" secondAttribute="bottom" constant="15" id="S8s-s4-Nuk"/>
                 <constraint firstItem="TFT-TK-lul" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UlB-dG-7zn"/>
+                <constraint firstItem="UsE-lF-iQY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WaO-CO-UDO"/>
                 <constraint firstItem="H1d-Gz-Akm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="ZCv-0K-7kz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="k7S-6P-dFE" secondAttribute="trailing" constant="20" id="fSb-F9-D7H"/>
                 <constraint firstItem="k7S-6P-dFE" firstAttribute="top" secondItem="H1d-Gz-Akm" secondAttribute="bottom" constant="15" id="fhK-Ck-GK5"/>
-                <constraint firstItem="UsE-lF-iQY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gqV-bx-Qlm"/>
                 <constraint firstItem="dgy-2o-al7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hCG-2j-LNX"/>
-                <constraint firstItem="UsE-lF-iQY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hUH-gz-dcI"/>
                 <constraint firstItem="to7-VA-AGK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rhR-LR-X6e"/>
                 <constraint firstItem="dgy-2o-al7" firstAttribute="top" secondItem="k7S-6P-dFE" secondAttribute="bottom" constant="15" id="v1a-qH-LAX"/>
                 <constraint firstItem="k7S-6P-dFE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vSJ-Yt-aXF"/>

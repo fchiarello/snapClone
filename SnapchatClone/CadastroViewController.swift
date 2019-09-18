@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CadastroViewController: UIViewController {
     
@@ -16,14 +17,37 @@ class CadastroViewController: UIViewController {
     
     @IBOutlet weak var confirmaSenhaCadastro: UITextField!
     
+    func exibirMensagem() {
+        let alerta = UIAlertController(title: "Dados Inválidos", message: "Senha e Confirmação de Senha são diferentes!", preferredStyle: .alert)
+        let acaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alerta.addAction(acaoCancelar)
+        present(alerta, animated: true, completion: nil)
+    }
+    
     @IBAction func cadastrarCadastro(_ sender: Any) {
         if let emailR = self.emailCadastro.text{
             if let senhaR = self.senhaCadastro.text{
                 if let confirmaR = self.confirmaSenhaCadastro.text{
                     if senhaR == confirmaR{
-                        print("Cadastro ok")
+                        let autenticacao = Auth.auth()
+                        autenticacao.createUser(withEmail: emailR, password: senhaR) { (usuario, erro) in
+                            if erro == nil {
+                                print("Autenticado!")
+                            }else{
+                                let erroR = erro! as NSError
+                                //ERROR_INVALID_EMAIL
+                                //ERROR_WEAK_PASSWORD
+                                //ERROR_EMAIL_ALREADY_IN_USE
+                                if let codigoErro = erroR.userInfo{
+                                    let erroTexto = codigoErro as! String
+                                    if codigoErro == "ERROR_INVALID_EMAIL"{
+                                        
+                                    }else if erroTexto == "ERROR_WEAK_PASSWORD"
+                                }
+                            }
+                        }
                     }else{
-                        print("Erro Cadastro!")
+                        self.exibirMensagem()
                     }
                 }
             }
@@ -37,8 +61,6 @@ class CadastroViewController: UIViewController {
     }
     
     func setuoBarButtonItems() {
-//        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(voltarControllerInicial))
-//        navigationItem.leftBarButtonItem = backButton
         let backButton = UIBarButtonItem(title: "back", style: .done, target: self, action: #selector(voltarControllerInicial))
         navigationItem.leftBarButtonItem = backButton
     }
