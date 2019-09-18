@@ -18,7 +18,7 @@ class CadastroViewController: UIViewController {
     @IBOutlet weak var confirmaSenhaCadastro: UITextField!
     
     func exibirMensagem(titulo: String, mensagem: String) {
-        let alerta = UIAlertController(title: "Dados Inválidos", message: "Senha e Confirmação de Senha são diferentes!", preferredStyle: .alert)
+        let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
         let acaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alerta.addAction(acaoCancelar)
         present(alerta, animated: true, completion: nil)
@@ -31,42 +31,47 @@ class CadastroViewController: UIViewController {
                     if senhaR == confirmaR{
                         let autenticacao = Auth.auth()
                         autenticacao.createUser(withEmail: emailR, password: senhaR) { (usuario, erro) in
-                            if erro == nil {
+                            
+                            guard let erroR = erro as? NSError else {
                                 print("Autenticado!")
-                            }else{
-                                let erroR = erro! as NSError
-                                if let codigoErro = erroR.userInfo["error_name"]{
-                                    let erroTexto = codigoErro as! String
-                                    var mensagemErro = ""
-                                    switch erroTexto {
-                                    case "ERROR_INVALID_EMAIL":
-                                        mensagemErro = "E-mail digitado não é válido."
-                                        break
-                                    case "ERROR_WEAK_PASSWORD":
-                                        mensagemErro = "Senha fraca: Sua senha deve conter no mínimo 6 caracteres com letras e números!"
-                                        break
-                                    case "ERROR_EMAIL_ALREADY_IN_USE":
-                                        mensagemErro = "E-mail já cadastrado"
-                                        break
-                                    default:
-                                        mensagemErro = "Tentativa de acesso inválido"
-                                    }
-                                    self.exibirMensagem(titulo: "Dados inválidos!", mensagem: mensagemErro)
-                                }
+                                self.exibirMensagem(titulo: "Cadastro OK", mensagem: "Cadastro efetuado com Sucesso!")
+                                
+                                return
                             }
-                        }
+                            
+                            guard let erroTexto = erroR.localizedDescription as? String else {
+                                return
+                            }
+                                var mensagemErro = ""
+                                switch erroTexto {
+                                case "ERROR_INVALID_EMAIL":
+                                    mensagemErro = "E-mail digitado não é válido."
+                                    break
+                                case "The password must be 6 characters long or more":
+                                    mensagemErro = "Senha fraca: Sua senha deve conter no mínimo 6 caracteres com letras e números!"
+                                    break
+                                case "The email address is already in use by another account.":
+                                    mensagemErro = "E-mail já cadastrado"
+                                    break
+                                default:
+                                    mensagemErro = "Tentativa de acesso inválido"
+                                    print(erroTexto)
+                                }
+                                self.exibirMensagem(titulo: "Dados inválidos!", mensagem: mensagemErro)
+                            }
                     }else{
-                        self.exibirMensagem(titulo: "Senhas divergentes!", mensagem: "As senhas digitadas não conferem.")
+                        self.exibirMensagem(titulo: "Senhas divergentes", mensagem: "Senhas digitadas não coincidem!")
+                    }
                     }
                 }
             }
         }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setuoBarButtonItems()
-       
+        
     }
     
     func setuoBarButtonItems() {
@@ -82,5 +87,5 @@ class CadastroViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-
+    
 }
