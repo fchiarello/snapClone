@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TabelaSnapsTableViewController: UITableViewController {
         
@@ -27,7 +28,15 @@ class TabelaSnapsTableViewController: UITableViewController {
     }
     
     @objc func deslogarUsuario () {
-        
+       
+       let autenticacao = Auth.auth()
+        do {
+            try autenticacao.signOut()
+//            let telaInicial = ViewController.init()
+            self.navigationController?.popViewController(animated: true)
+        } catch {
+            print("Erro ao deslogar!")
+        }
     }
     
     @objc func irParaSelecionarFoto () {

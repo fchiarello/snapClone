@@ -17,13 +17,6 @@ class CadastroViewController: UIViewController {
     
     @IBOutlet weak var confirmaSenhaCadastro: UITextField!
     
-    func exibirMensagem(titulo: String, mensagem: String) {
-        let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        let acaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        alerta.addAction(acaoCancelar)
-        present(alerta, animated: true, completion: nil)
-    }
-    
     @IBAction func cadastrarCadastro(_ sender: Any) {
         if let emailR = self.emailCadastro.text{
             if let senhaR = self.senhaCadastro.text{
@@ -32,10 +25,10 @@ class CadastroViewController: UIViewController {
                         let autenticacao = Auth.auth()
                         autenticacao.createUser(withEmail: emailR, password: senhaR) { (usuario, erro) in
                             
-                            guard let erroR = erro as? NSError else {
+                            guard let erroR = erro as NSError? else {
                                 print("Autenticado!")                                
-                                let snapsViewController = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
-                                self.navigationController?.pushViewController(snapsViewController, animated: true)
+//                                let snapsViewController = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
+//                                self.navigationController?.pushViewController(snapsViewController, animated: true)
                                 
                                 return
                             }
@@ -69,6 +62,7 @@ class CadastroViewController: UIViewController {
         }
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setuoBarButtonItems()
@@ -83,6 +77,13 @@ class CadastroViewController: UIViewController {
     @objc func voltarControllerInicial () {
         self.navigationController?.popViewController(animated: true)
         print("VOLTOU")
+    }
+    
+    func exibirMensagem(titulo: String, mensagem: String) {
+        let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
+        let acaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alerta.addAction(acaoCancelar)
+        present(alerta, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

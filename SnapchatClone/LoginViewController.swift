@@ -35,8 +35,8 @@ class LoginViewController: UIViewController {
                 autenticacao.signIn(withEmail: emailR, password: senhaR) { (usuario, erro) in
                     guard let erroR = erro as NSError? else{
                         print("Entrou!")
-                        let snapsViewController = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
-                        self.navigationController?.pushViewController(snapsViewController, animated: true)
+//                        let snapsViewController = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
+//                        self.navigationController?.pushViewController(snapsViewController, animated: true)
                         return
                     }
                     guard let erroTexto = erroR.localizedDescription as? String else{

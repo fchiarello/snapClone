@@ -14,10 +14,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let autenticacao = Auth.auth()
+        let autenticacao = Auth.auth()        
         autenticacao.addStateDidChangeListener { (autenticada, usuario) in
-            
-
+            if usuario != nil {
+                let snapsViewController = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
+                self.navigationController?.pushViewController(snapsViewController, animated: true)
+            }
         }
     }
     
