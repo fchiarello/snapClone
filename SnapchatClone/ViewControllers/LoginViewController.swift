@@ -17,16 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-    }
-    
-    func exibirMensagem(titulo: String, mensagem: String) {
-        let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        let acaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        alerta.addAction(acaoCancelar)
-        present(alerta, animated: true, completion: nil)
-    }
+        }
     
     @IBAction func entrarLogin(_ sender: Any) {
         if let emailR = self.emailLogin.text{
@@ -35,8 +26,6 @@ class LoginViewController: UIViewController {
                 autenticacao.signIn(withEmail: emailR, password: senhaR) { (usuario, erro) in
                     guard let erroR = erro as NSError? else{
                         print("Entrou!")
-//                        let snapsViewController = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
-//                        self.navigationController?.pushViewController(snapsViewController, animated: true)
                         return
                     }
                     guard let erroTexto = erroR.localizedDescription as? String else{
@@ -53,11 +42,11 @@ class LoginViewController: UIViewController {
                     default:
                         mensagemErro = "Tentativa de acesso inválido"
                     }
-                    self.exibirMensagem(titulo: "Dados inválidos!", mensagem: mensagemErro)
+                    let alerta = Alertas(titulo: "Dados inválidos!", mensagem: mensagemErro)
+                    self.present(alerta.getAlerta(), animated: true, completion: nil)
                 }
             }
         }
-        
     }
     func setuoBarButtonItems() {
         let backButton = UIBarButtonItem(title: "back", style: .done, target: self, action: #selector(voltarControllerInicial))
@@ -66,7 +55,6 @@ class LoginViewController: UIViewController {
     
     @objc func voltarControllerInicial () {
         self.navigationController?.popViewController(animated: true)
-        print("VOLTOU")
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -31,13 +31,13 @@ class ViewController: UIViewController {
         let loginViewController = LoginViewController.init(nibName: "LoginViewController", bundle: nil)
         navigationController?.pushViewController(loginViewController, animated: true)
     }
- 
+    
     @IBAction func cadastroUsuario(_ sender: Any) {
         let cadastroUsuario = CadastroViewController.init(nibName: "CadastroViewController", bundle: nil)
         navigationController?.pushViewController(cadastroUsuario, animated: true)
         
     }
-
-
+    
+    
 }
 

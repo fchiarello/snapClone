@@ -17,6 +17,7 @@
 		C952CA71232FF042009A4126 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C952CA6F232FF042009A4126 /* LoginViewController.xib */; };
 		C952CA74232FF071009A4126 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952CA72232FF071009A4126 /* CadastroViewController.swift */; };
 		C952CA75232FF071009A4126 /* CadastroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C952CA73232FF071009A4126 /* CadastroViewController.xib */; };
+		C973BE2B23394CB70009ED6D /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BE2A23394CB70009ED6D /* Alerta.swift */; };
 		C99FAB0B232FCF30000B478E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99FAB0A232FCF30000B478E /* AppDelegate.swift */; };
 		C99FAB0D232FCF30000B478E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99FAB0C232FCF30000B478E /* ViewController.swift */; };
 		C99FAB10232FCF30000B478E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99FAB0E232FCF30000B478E /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		C952CA6F232FF042009A4126 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		C952CA72232FF071009A4126 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		C952CA73232FF071009A4126 /* CadastroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CadastroViewController.xib; sourceTree = "<group>"; };
+		C973BE2A23394CB70009ED6D /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
 		C99FAB07232FCF30000B478E /* SnapchatClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapchatClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99FAB0A232FCF30000B478E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99FAB0C232FCF30000B478E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C973BE2C233950FB0009ED6D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C973BE2A23394CB70009ED6D /* Alerta.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C973BE2D233951120009ED6D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C99FAB0C232FCF30000B478E /* ViewController.swift */,
+				C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */,
+				C952CA6E232FF042009A4126 /* LoginViewController.swift */,
+				C952CA72232FF071009A4126 /* CadastroViewController.swift */,
+				C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C973BE2E233951660009ED6D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C99FAB13232FCF32000B478E /* LaunchScreen.storyboard */,
+				C952CA6F232FF042009A4126 /* LoginViewController.xib */,
+				C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */,
+				C952CA73232FF071009A4126 /* CadastroViewController.xib */,
+				C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */,
+				C99FAB0E232FCF30000B478E /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		C99FAAFE232FCF30000B478E = {
 			isa = PBXGroup;
 			children = (
@@ -88,22 +123,14 @@
 		C99FAB09232FCF30000B478E /* SnapchatClone */ = {
 			isa = PBXGroup;
 			children = (
-				C952CA67232FDD8A009A4126 /* SnapchatClone.entitlements */,
 				C99FAB0A232FCF30000B478E /* AppDelegate.swift */,
-				C99FAB0C232FCF30000B478E /* ViewController.swift */,
-				C99FAB0E232FCF30000B478E /* Main.storyboard */,
+				C973BE2C233950FB0009ED6D /* Models */,
+				C973BE2D233951120009ED6D /* ViewControllers */,
+				C973BE2E233951660009ED6D /* Storyboards */,
 				C99FAB11232FCF32000B478E /* Assets.xcassets */,
-				C99FAB13232FCF32000B478E /* LaunchScreen.storyboard */,
+				C952CA67232FDD8A009A4126 /* SnapchatClone.entitlements */,
 				C99FAB16232FCF32000B478E /* Info.plist */,
 				C952CA68232FDED5009A4126 /* GoogleService-Info.plist */,
-				C952CA6E232FF042009A4126 /* LoginViewController.swift */,
-				C952CA6F232FF042009A4126 /* LoginViewController.xib */,
-				C952CA72232FF071009A4126 /* CadastroViewController.swift */,
-				C952CA73232FF071009A4126 /* CadastroViewController.xib */,
-				C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */,
-				C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */,
-				C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */,
-				C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */,
 			);
 			path = SnapchatClone;
 			sourceTree = "<group>";
@@ -248,6 +275,7 @@
 				C93F26162332A83600BD318D /* TabelaSnapsTableViewController.swift in Sources */,
 				C93F261E2332BBF900BD318D /* SelecionaFotoViewController.swift in Sources */,
 				C952CA74232FF071009A4126 /* CadastroViewController.swift in Sources */,
+				C973BE2B23394CB70009ED6D /* Alerta.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

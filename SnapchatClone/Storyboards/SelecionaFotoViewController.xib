@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelecionaFotoViewController" customModule="SnapchatClone" customModuleProvider="target">
             <connections>
+                <outlet property="descricaoImagem" destination="aTN-Fn-hDD" id="fpM-we-LE4"/>
+                <outlet property="fotoSelecionada" destination="sm1-TB-bIM" id="r33-FC-dyE"/>
+                <outlet property="proximo" destination="JP6-GG-KhK" id="YM7-s1-sLO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,23 +22,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padrao" translatesAutoresizingMaskIntoConstraints="NO" id="sm1-TB-bIM">
-                    <rect key="frame" x="77.5" y="64" width="220" height="220"/>
+                    <rect key="frame" x="77.5" y="44" width="220" height="220"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="220" id="7Oo-Ck-j7i"/>
                         <constraint firstAttribute="width" constant="220" id="oQh-1i-bSZ"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aTN-Fn-hDD">
-                    <rect key="frame" x="77.5" y="304" width="220" height="30"/>
+                    <rect key="frame" x="77.5" y="284" width="220" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="220" id="aDy-TI-Cu6"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-GG-KhK">
-                    <rect key="frame" x="120.5" y="374" width="134" height="62"/>
+                    <rect key="frame" x="120.5" y="358" width="134" height="62"/>
                     <color key="backgroundColor" red="0.63668207160000001" green="0.3959772654" blue="0.9417631662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="134" id="2ru-Au-Lwu"/>
@@ -48,6 +48,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Próximo"/>
+                    <connections>
+                        <action selector="botaoProximo:" destination="-1" eventType="touchUpInside" id="7Cm-O1-iB7"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

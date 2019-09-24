@@ -27,8 +27,6 @@ class CadastroViewController: UIViewController {
                             
                             guard let erroR = erro as NSError? else {
                                 print("Autenticado!")                                
-//                                let snapsViewController = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
-//                                self.navigationController?.pushViewController(snapsViewController, animated: true)
                                 
                                 return
                             }
@@ -36,30 +34,32 @@ class CadastroViewController: UIViewController {
                             guard let erroTexto = erroR.localizedDescription as? String else {
                                 return
                             }
-                                var mensagemErro = ""
-                                switch erroTexto {
-                                case "ERROR_INVALID_EMAIL":
-                                    mensagemErro = "E-mail digitado não é válido."
-                                    break
-                                case "The password must be 6 characters long or more":
-                                    mensagemErro = "Senha fraca: Sua senha deve conter no mínimo 6 caracteres com letras e números!"
-                                    break
-                                case "The email address is already in use by another account.":
-                                    mensagemErro = "E-mail já cadastrado"
-                                    break
-                                default:
-                                    mensagemErro = "Tentativa de acesso inválido"
-                                    print(erroTexto)
-                                }
-                                self.exibirMensagem(titulo: "Dados inválidos!", mensagem: mensagemErro)
+                            var mensagemErro = ""
+                            switch erroTexto {
+                            case "ERROR_INVALID_EMAIL":
+                                mensagemErro = "E-mail digitado não é válido."
+                                break
+                            case "The password must be 6 characters long or more":
+                                mensagemErro = "Senha fraca: Sua senha deve conter no mínimo 6 caracteres com letras e números!"
+                                break
+                            case "The email address is already in use by another account.":
+                                mensagemErro = "E-mail já cadastrado"
+                                break
+                            default:
+                                mensagemErro = "Tentativa de acesso inválido"
+                                print(erroTexto)
                             }
+                            let alerta = Alertas(titulo: "Dados Inválidos!", mensagem: mensagemErro)
+                            self.present(alerta.getAlerta(), animated: true, completion: nil)
+                        }
                     }else{
-                        self.exibirMensagem(titulo: "Senhas divergentes", mensagem: "Senhas digitadas não coincidem!")
-                    }
+                        let alerta = Alertas(titulo: "Senhas Divergentes!", mensagem: "Senhas digitadas não coincidem!")
+                        self.present(alerta.getAlerta(), animated: true, completion: nil)
                     }
                 }
             }
         }
+    }
     
     
     
@@ -77,13 +77,6 @@ class CadastroViewController: UIViewController {
     @objc func voltarControllerInicial () {
         self.navigationController?.popViewController(animated: true)
         print("VOLTOU")
-    }
-    
-    func exibirMensagem(titulo: String, mensagem: String) {
-        let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        let acaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        alerta.addAction(acaoCancelar)
-        present(alerta, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
