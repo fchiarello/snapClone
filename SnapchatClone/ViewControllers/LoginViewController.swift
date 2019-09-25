@@ -17,7 +17,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        }
+        setuoBarButtonItems()
+        self.title = "Login"
+    }
     
     @IBAction func entrarLogin(_ sender: Any) {
         if let emailR = self.emailLogin.text{

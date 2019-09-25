@@ -14,6 +14,7 @@ class TabelaSnapsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setuoBarButtonItems()
+        self.title = "Snaps"
     }
     
     func setuoBarButtonItems() {
@@ -22,8 +23,6 @@ class TabelaSnapsTableViewController: UITableViewController {
         
         let addSnapButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(irParaSelecionarFoto))
         navigationItem.rightBarButtonItem = addSnapButton
-        
-        navigationController?.navigationBar.topItem?.title = "Snaps"
         
     }
     

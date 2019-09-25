@@ -12,6 +12,11 @@
 		C93F26172332A83600BD318D /* TabelaSnapsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */; };
 		C93F261E2332BBF900BD318D /* SelecionaFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */; };
 		C93F261F2332BBF900BD318D /* SelecionaFotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */; };
+		C94A75A0233B93B700AB8CCE /* UsuariosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A759E233B93B700AB8CCE /* UsuariosTableViewController.swift */; };
+		C94A75A1233B93B700AB8CCE /* UsuariosTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94A759F233B93B700AB8CCE /* UsuariosTableViewController.xib */; };
+		C94A75A3233BA37100AB8CCE /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A75A2233BA37100AB8CCE /* Usuario.swift */; };
+		C94A75A8233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A75A6233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift */; };
+		C94A75A9233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94A75A7233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.xib */; };
 		C952CA69232FDED5009A4126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C952CA68232FDED5009A4126 /* GoogleService-Info.plist */; };
 		C952CA70232FF042009A4126 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952CA6E232FF042009A4126 /* LoginViewController.swift */; };
 		C952CA71232FF042009A4126 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C952CA6F232FF042009A4126 /* LoginViewController.xib */; };
@@ -33,6 +38,11 @@
 		C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabelaSnapsTableViewController.xib; sourceTree = "<group>"; };
 		C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaFotoViewController.swift; sourceTree = "<group>"; };
 		C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelecionaFotoViewController.xib; sourceTree = "<group>"; };
+		C94A759E233B93B700AB8CCE /* UsuariosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuariosTableViewController.swift; sourceTree = "<group>"; };
+		C94A759F233B93B700AB8CCE /* UsuariosTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsuariosTableViewController.xib; sourceTree = "<group>"; };
+		C94A75A2233BA37100AB8CCE /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		C94A75A6233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelulaUsuariosTableViewCell.swift; sourceTree = "<group>"; };
+		C94A75A7233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelulaUsuariosTableViewCell.xib; sourceTree = "<group>"; };
 		C952CA67232FDD8A009A4126 /* SnapchatClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapchatClone.entitlements; sourceTree = "<group>"; };
 		C952CA68232FDED5009A4126 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C952CA6E232FF042009A4126 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				C973BE2A23394CB70009ED6D /* Alerta.swift */,
+				C94A75A2233BA37100AB8CCE /* Usuario.swift */,
+				C94A75A6233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -85,6 +97,7 @@
 				C952CA6E232FF042009A4126 /* LoginViewController.swift */,
 				C952CA72232FF071009A4126 /* CadastroViewController.swift */,
 				C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */,
+				C94A759E233B93B700AB8CCE /* UsuariosTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -92,6 +105,8 @@
 		C973BE2E233951660009ED6D /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				C94A759F233B93B700AB8CCE /* UsuariosTableViewController.xib */,
+				C94A75A7233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.xib */,
 				C99FAB13232FCF32000B478E /* LaunchScreen.storyboard */,
 				C952CA6F232FF042009A4126 /* LoginViewController.xib */,
 				C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */,
@@ -212,10 +227,12 @@
 				C93F26172332A83600BD318D /* TabelaSnapsTableViewController.xib in Resources */,
 				C952CA71232FF042009A4126 /* LoginViewController.xib in Resources */,
 				C93F261F2332BBF900BD318D /* SelecionaFotoViewController.xib in Resources */,
+				C94A75A1233B93B700AB8CCE /* UsuariosTableViewController.xib in Resources */,
 				C99FAB15232FCF32000B478E /* LaunchScreen.storyboard in Resources */,
 				C952CA69232FDED5009A4126 /* GoogleService-Info.plist in Resources */,
 				C952CA75232FF071009A4126 /* CadastroViewController.xib in Resources */,
 				C99FAB12232FCF32000B478E /* Assets.xcassets in Resources */,
+				C94A75A9233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.xib in Resources */,
 				C99FAB10232FCF30000B478E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,8 +288,11 @@
 			files = (
 				C952CA70232FF042009A4126 /* LoginViewController.swift in Sources */,
 				C99FAB0D232FCF30000B478E /* ViewController.swift in Sources */,
+				C94A75A8233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift in Sources */,
+				C94A75A0233B93B700AB8CCE /* UsuariosTableViewController.swift in Sources */,
 				C99FAB0B232FCF30000B478E /* AppDelegate.swift in Sources */,
 				C93F26162332A83600BD318D /* TabelaSnapsTableViewController.swift in Sources */,
+				C94A75A3233BA37100AB8CCE /* Usuario.swift in Sources */,
 				C93F261E2332BBF900BD318D /* SelecionaFotoViewController.swift in Sources */,
 				C952CA74232FF071009A4126 /* CadastroViewController.swift in Sources */,
 				C973BE2B23394CB70009ED6D /* Alerta.swift in Sources */,

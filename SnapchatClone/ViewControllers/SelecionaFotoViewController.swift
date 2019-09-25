@@ -18,6 +18,19 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var descricaoImagem: UITextField!
     
     @IBOutlet weak var proximo: UIButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setuoBarButtonItems()
+        self.title = "Foto"
+        imagePicker.delegate = self
+        
+        
+        //Desativando botao Proximo até q a foto seja carregada
+        self.proximo.isEnabled = false
+        self.proximo.backgroundColor = UIColor.gray
+    }
+    
     
     @IBAction func botaoProximo(_ sender: Any) {
         self.proximo.isEnabled = false
@@ -46,17 +59,11 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
                 }
             }
         }
+        let usuariosTableView = UsuariosTableViewController.init(nibName: "UsuariosTableViewController", bundle: nil)
+        navigationController?.pushViewController(usuariosTableView, animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setuoBarButtonItems()
-        imagePicker.delegate = self
-        
-        //Desativando botao Proximo até q a foto seja carregada
-        self.proximo.isEnabled = false
-        self.proximo.backgroundColor = UIColor.gray
-    }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -68,13 +75,17 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func setuoBarButtonItems() {
+        let openLibrary = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(abrirAlbum))
         let openCam = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(abrirCamera))
-        navigationItem.rightBarButtonItem = openCam
-        
-        navigationController?.navigationBar.topItem?.title = "Snaps"
+        navigationItem.rightBarButtonItems = [openCam, openLibrary]
     }
     
     @objc func abrirCamera() {
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func abrirAlbum() {
         imagePicker.sourceType = .savedPhotosAlbum
         present(imagePicker, animated: true, completion: nil)
     }
