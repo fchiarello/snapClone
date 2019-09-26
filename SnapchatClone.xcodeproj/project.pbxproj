@@ -93,9 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				C99FAB0C232FCF30000B478E /* ViewController.swift */,
-				C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */,
 				C952CA6E232FF042009A4126 /* LoginViewController.swift */,
 				C952CA72232FF071009A4126 /* CadastroViewController.swift */,
+				C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */,
 				C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */,
 				C94A759E233B93B700AB8CCE /* UsuariosTableViewController.swift */,
 			);
