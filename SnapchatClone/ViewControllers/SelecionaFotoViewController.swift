@@ -13,12 +13,13 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
     
     var imagePicker = UIImagePickerController()
     var idImagem = NSUUID().uuidString
+    var urlRecuperada = ""
     
     @IBOutlet weak var fotoSelecionada: UIImageView!
     @IBOutlet weak var descricaoImagem: UITextField!
     
     @IBOutlet weak var proximo: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setuoBarButtonItems()
@@ -32,51 +33,49 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
     }
     
     
-    @IBAction func botaoProximo(_ sender: Any) {
+    @IBAction func botaoProximo(_ sender: UIView) {
         self.proximo.isEnabled = false
         self.proximo.setTitle("Carregando...", for: .normal)
+        
         let armazenamento = Storage.storage().reference()
         let imagens = armazenamento.child("imagens") //cria uma pasta no firebase para armazanar arquivos
-        
-        //Recuperar imagem
-        
         if let imagemSelecionada = fotoSelecionada.image {
             
-            guard let imagemDados = imagemSelecionada.jpegData(compressionQuality: 0.2) else { return }
-            imagens.child("\(self.idImagem).jpg").putData(imagemDados, metadata: nil) { (metaDados, erro) in
+            let imagemDados = imagemSelecionada.jpegData(compressionQuality: 0.2)
+            imagens.child("\(self.idImagem).jpg").putData(imagemDados!, metadata: nil) { (metaDados, erro) in
                 if erro == nil {
-//                    print(metaDados!)
+                    print(metaDados!)
                     metaDados?.storageReference?.downloadURL(completion: { (url, erro ) in
-//                        print(url?.absoluteString as Any)
-                       
-                        let urlR = url?.absoluteString
+                        print(url?.absoluteString as Any)
+                        self.urlRecuperada = url!.absoluteString
                         
-                        self.segueEnviaUrl()
+                        //                        let storyboard = UIStoryboard(name: "UsuariosTableViewController", bundle: nil)
+                        //                        let instanceVC = storyboard.instantiateViewController(withIdentifier: "idView") as UIViewController
+                        //                        self.navigationController?.show(instanceVC, sender: url)
                         
                     })
                     self.proximo.isEnabled = true
                     self.proximo.setTitle("Próximo", for: .normal)
                 }else{
-                    print("Erro!")
+                    print(erro as Any)
                     
                     let alerta = Alertas(titulo: "Erro!", mensagem: "A foto não foi enviada!")
                     self.present(alerta.getAlerta(), animated: true, completion: nil)
                 }
             }
         }
-
+        presentNewScreen()
     }
     
-    func proximaTela () {
-        let usuariosViewController = UsuariosTableViewController(nibName: "UsuariosTableViewController", bundle: nil)
-        
-        
-        usuariosViewController.descricao = self.descricaoImagem.text!
-        usuariosViewController.urlImagem = self.urlR
-        usuariosViewController.idImagem = self.idImagem as String
-        
+    func presentNewScreen() {
+        let usuariosTableView = UsuariosTableViewController.init(nibName: "UsuariosTableViewController", bundle: nil)
+            present(usuariosTableView, animated: true) {
+            usuariosTableView.descricao = self.descricaoImagem.text!
+            usuariosTableView.urlImagem = self.urlRecuperada as String
+            usuariosTableView.idImagem = self.idImagem as String
+        }
     }
-        
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let imagemRecuperada = info[ UIImagePickerController.InfoKey.originalImage ] as! UIImage
@@ -100,11 +99,6 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
     @objc func abrirAlbum() {
         imagePicker.sourceType = .savedPhotosAlbum
         present(imagePicker, animated: true, completion: nil)
-    }
-    
-    @objc func segueEnviaUrl() {
-        let usuariosTableView = UsuariosTableViewController.init(nibName: "UsuariosTableViewController", bundle: nil)
-        navigationController?.pushViewController(usuariosTableView, animated: true)
     }
     
 }

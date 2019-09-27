@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class UsuariosTableViewController: UITableViewController {
-        
+    
     var usuarios: [Usuario] = []
     var urlImagem = ""
     var descricao = ""
@@ -42,23 +42,23 @@ class UsuariosTableViewController: UITableViewController {
             
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.usuarios.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celula = tableView.dequeueReusableCell(withIdentifier: "celulaUsuario", for: indexPath) as! CelulaUsuariosTableViewCell
-
+        
         let usuarioCelula = self.usuarios[indexPath.row]
         celula.textLabel?.text = usuarioCelula.nome
         celula.detailTextLabel?.text = usuarioCelula.email
@@ -82,7 +82,7 @@ class UsuariosTableViewController: UITableViewController {
             
             let usuarioLogado = usuarios.child(idUsuarioLogado)
             usuarioLogado.observeSingleEvent(of: DataEventType.value) { (snapshot) in
-            
+                
                 let dados = snapshot.value as? NSDictionary
                 
                 let snap = [
@@ -96,8 +96,8 @@ class UsuariosTableViewController: UITableViewController {
             }
             
         }
-        navigationController?.popViewController(animated: true)
-        
-    }
+        //        navigationController?.popViewController(animated: true)
+        let viewController = TabelaSnapsTableViewController(nibName: "TabelaSnapsTableViewController", bundle: nil)
+        present(viewController, animated: true, completion: nil)    }
     
 }
