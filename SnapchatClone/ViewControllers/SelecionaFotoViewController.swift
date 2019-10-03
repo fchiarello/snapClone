@@ -43,27 +43,19 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
             
             let imagemDados = imagemSelecionada.jpegData(compressionQuality: 0.2)
             imagens.child("\(self.idImagem).jpg").putData(imagemDados!, metadata: nil) { (metaDados, erro) in
-                if erro == nil {
-                    print(metaDados!)
-                    metaDados?.storageReference?.downloadURL(completion: { (url, erro ) in
-                        print(url?.absoluteString as Any)
-                        self.urlRecuperada = url!.absoluteString
-                        
-                        //                        let storyboard = UIStoryboard(name: "UsuariosTableViewController", bundle: nil)
-                        //                        let instanceVC = storyboard.instantiateViewController(withIdentifier: "idView") as UIViewController
-                        //                        self.navigationController?.show(instanceVC, sender: url)
-                        
-                    })
-                    self.proximo.isEnabled = true
-                    self.proximo.setTitle("Próximo", for: .normal)
-                }else{
-                    print(erro as Any)
-                    
-                    let alerta = Alertas(titulo: "Erro!", mensagem: "A foto não foi enviada!")
-                    self.present(alerta.getAlerta(), animated: true, completion: nil)
+                if erro == nil, metaDados != nil {
+                    armazenamento.downloadURL { (url, error) in
+                        if url != nil{
+                            guard let urlFinal = url?.absoluteString else {return}
+                            print(url as Any)
+                            self.urlRecuperada = urlFinal
+                            print(urlFinal)
+                        }
+                    }
                 }
             }
         }
+        print(urlRecuperada)
         presentNewScreen()
     }
     
@@ -71,8 +63,9 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
         let usuariosTableView = UsuariosTableViewController.init(nibName: "UsuariosTableViewController", bundle: nil)
             present(usuariosTableView, animated: true) {
             usuariosTableView.descricao = self.descricaoImagem.text!
-            usuariosTableView.urlImagem = self.urlRecuperada as String
+            usuariosTableView.urlImagem = self.urlRecuperada
             usuariosTableView.idImagem = self.idImagem as String
+                print(self.urlRecuperada)
         }
     }
     
