@@ -37,35 +37,38 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
         self.proximo.isEnabled = false
         self.proximo.setTitle("Carregando...", for: .normal)
         
-        let armazenamento = Storage.storage().reference()
-        let imagens = armazenamento.child("imagens") //cria uma pasta no firebase para armazanar arquivos
-        if let imagemSelecionada = fotoSelecionada.image {
-            
-            let imagemDados = imagemSelecionada.jpegData(compressionQuality: 0.2)
-            imagens.child("\(self.idImagem).jpg").putData(imagemDados!, metadata: nil) { (metaDados, erro) in
-                if erro == nil, metaDados != nil {
-                    armazenamento.downloadURL { (url, error) in
-                        if url != nil{
-                            guard let urlFinal = url?.absoluteString else {return}
-                            print(url as Any)
-                            self.urlRecuperada = urlFinal
-                            print(urlFinal)
+        let storage = Storage.storage().reference()
+        let imagesFolder = storage.child("imagens")
+        let imagesFile = imagesFolder.child("\(idImagem).jpg")
+        
+        //image recover
+        if let imageRecovered = fotoSelecionada.image{
+            if let imgData = imageRecovered.jpegData(compressionQuality: 0.2) {
+                imagesFile.putData(imgData, metadata: nil) { (metadata, error) in
+                    if error == nil {
+                        imagesFile.downloadURL { (url, error) in
+                            print(url?.absoluteString)
+                            let urlFinal = url?.absoluteString
+                            self.urlRecuperada = urlFinal!
+                            
+                            self.presentNewScreen()
                         }
+                        print("Sucesso ao Salvar")
+                    }
+                    else {
+                        print("erro ao fazer download do arquivo")
                     }
                 }
             }
         }
-        print(urlRecuperada)
-        presentNewScreen()
     }
     
     func presentNewScreen() {
         let usuariosTableView = UsuariosTableViewController.init(nibName: "UsuariosTableViewController", bundle: nil)
             present(usuariosTableView, animated: true) {
             usuariosTableView.descricao = self.descricaoImagem.text!
-            usuariosTableView.urlImagem = self.urlRecuperada
+                usuariosTableView.urlImagem = self.urlRecuperada as String
             usuariosTableView.idImagem = self.idImagem as String
-                print(self.urlRecuperada)
         }
     }
     
