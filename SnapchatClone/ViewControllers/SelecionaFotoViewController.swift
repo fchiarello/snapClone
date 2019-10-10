@@ -32,7 +32,6 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
         self.proximo.backgroundColor = UIColor.gray
     }
     
-    
     @IBAction func botaoProximo(_ sender: UIView) {
         self.proximo.isEnabled = false
         self.proximo.setTitle("Carregando...", for: .normal)
@@ -47,10 +46,9 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
                 imagesFile.putData(imgData, metadata: nil) { (metadata, error) in
                     if error == nil {
                         imagesFile.downloadURL { (url, error) in
-                            print(url?.absoluteString)
+                            print(url?.absoluteString as Any)
                             let urlFinal = url?.absoluteString
                             self.urlRecuperada = urlFinal!
-                            
                             self.presentNewScreen()
                         }
                         print("Sucesso ao Salvar")
@@ -65,15 +63,15 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
     
     func presentNewScreen() {
         let usuariosTableView = UsuariosTableViewController.init(nibName: "UsuariosTableViewController", bundle: nil)
-            present(usuariosTableView, animated: true) {
+        
+        self.navigationController?.pushViewController(viewController: usuariosTableView, animated: true, completion: {
             usuariosTableView.descricao = self.descricaoImagem.text!
-                usuariosTableView.urlImagem = self.urlRecuperada as String
+            usuariosTableView.urlImagem = self.urlRecuperada as String
             usuariosTableView.idImagem = self.idImagem as String
-        }
+        })
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         let imagemRecuperada = info[ UIImagePickerController.InfoKey.originalImage ] as! UIImage
         self.proximo.isEnabled = true
         self.proximo.backgroundColor = UIColor(displayP3Red: 0.553, green: 0.369, blue: 0.749, alpha: 1)
@@ -97,4 +95,17 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
         present(imagePicker, animated: true, completion: nil)
     }
     
+}
+
+extension UINavigationController {
+
+  public func pushViewController(viewController: UIViewController,
+                                 animated: Bool,
+                                 completion: (() -> Void)?) {
+    CATransaction.begin()
+    CATransaction.setCompletionBlock(completion)
+    pushViewController(viewController, animated: animated)
+    CATransaction.commit()
+  }
+
 }

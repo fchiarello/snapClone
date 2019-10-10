@@ -11,10 +11,43 @@ import Firebase
 
 class TabelaSnapsTableViewController: UITableViewController {
     
+    var snaps: [Snaps] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setuoBarButtonItems()
         self.title = "Snaps"
+        recuperaUsuario()
+        
+    }
+    
+    func recuperaUsuario() {
+        let autenticacao = Auth.auth()
+        let usuarioLogado = autenticacao.currentUser?.uid
+        
+        if let idUsuarioLogado = usuarioLogado {
+            let database = Database.database().reference()
+            let usuarios = database.child("usuarios")
+            let snaps = usuarios.child(idUsuarioLogado).child("Snaps")
+            
+            snaps.observe(DataEventType.childAdded) { (snapshot) in
+            
+                let dados = snapshot.value as? NSDictionary
+                
+                let snap = Snaps()
+                
+                snap.descricao = snapshot.key
+                snap.nome = dados?["nome"] as! String
+                snap.de = dados?["de"] as! String
+                snap.descricao = dados?["descricao"] as! String
+                snap.urlImagem = dados?["urlImagem"] as! String
+                snap.idImagem = dados?["idImagem"] as! String
+                
+                self.snaps.append(snap)
+                print(self.snaps)
+                
+            }
+        }
     }
     
     func setuoBarButtonItems() {

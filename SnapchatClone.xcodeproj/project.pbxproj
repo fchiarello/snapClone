@@ -28,6 +28,7 @@
 		C99FAB10232FCF30000B478E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99FAB0E232FCF30000B478E /* Main.storyboard */; };
 		C99FAB12232FCF32000B478E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99FAB11232FCF32000B478E /* Assets.xcassets */; };
 		C99FAB15232FCF32000B478E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99FAB13232FCF32000B478E /* LaunchScreen.storyboard */; };
+		C9B764FC234D185B003EA742 /* Snaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B764FB234D185B003EA742 /* Snaps.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		C99FAB11232FCF32000B478E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C99FAB14232FCF32000B478E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C99FAB16232FCF32000B478E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9B764FB234D185B003EA742 /* Snaps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snaps.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				C973BE2A23394CB70009ED6D /* Alerta.swift */,
 				C94A75A2233BA37100AB8CCE /* Usuario.swift */,
 				C94A75A6233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift */,
+				C9B764FB234D185B003EA742 /* Snaps.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,10 +111,10 @@
 				C94A759F233B93B700AB8CCE /* UsuariosTableViewController.xib */,
 				C94A75A7233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.xib */,
 				C99FAB13232FCF32000B478E /* LaunchScreen.storyboard */,
-				C952CA6F232FF042009A4126 /* LoginViewController.xib */,
 				C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */,
-				C952CA73232FF071009A4126 /* CadastroViewController.xib */,
 				C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */,
+				C952CA73232FF071009A4126 /* CadastroViewController.xib */,
+				C952CA6F232FF042009A4126 /* LoginViewController.xib */,
 				C99FAB0E232FCF30000B478E /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -290,6 +293,7 @@
 				C99FAB0D232FCF30000B478E /* ViewController.swift in Sources */,
 				C94A75A8233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift in Sources */,
 				C94A75A0233B93B700AB8CCE /* UsuariosTableViewController.swift in Sources */,
+				C9B764FC234D185B003EA742 /* Snaps.swift in Sources */,
 				C99FAB0B232FCF30000B478E /* AppDelegate.swift in Sources */,
 				C93F26162332A83600BD318D /* TabelaSnapsTableViewController.swift in Sources */,
 				C94A75A3233BA37100AB8CCE /* Usuario.swift in Sources */,

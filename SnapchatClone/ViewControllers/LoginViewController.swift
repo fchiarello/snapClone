@@ -27,7 +27,6 @@ class LoginViewController: UIViewController {
                 let autenticacao = Auth.auth()
                 autenticacao.signIn(withEmail: emailR, password: senhaR) { (usuario, erro) in
                     guard let erroR = erro as NSError? else{
-                        print("Entrou!")
                         return
                     }
                     guard let erroTexto = erroR.localizedDescription as? String else{

@@ -21,13 +21,16 @@ class UsuariosTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Usuarios"
-        
         tableView.register(CelulaUsuariosTableViewCell.self, forCellReuseIdentifier: "celulaUsuario")
-        
         let dataBase = Database.database().reference()
         let usuarios = dataBase.child("usuarios")
         usuarios.observe(DataEventType.childAdded) { (snapshot) in
             let dados = snapshot.value as! NSDictionary
+            
+            //ID usuario logado
+            
+            let autenticacao = Auth.auth()
+            let usuarioLogado = autenticacao.currentUser?.uid
             
             //Recuperar dados do Usuarios
             let emailUsuario = dados["email"] as! String
@@ -36,10 +39,10 @@ class UsuariosTableViewController: UITableViewController {
             
             //adiciona usuarios ao array
             let usuario = Usuario(email: emailUsuario, nome: nomeUsuario, uid: uidUsuario)
-            self.usuarios.append(usuario)
-            
+            if uidUsuario != usuarioLogado {
+                self.usuarios.append(usuario)
+            }
             self.tableView.reloadData()
-            
         }
     }
     
@@ -73,18 +76,12 @@ class UsuariosTableViewController: UITableViewController {
         //Recupera referencia do banco de dados
         let dataBase = Database.database().reference()
         let usuarios = dataBase.child("usuarios")
-        
         let snaps = usuarios.child(idUsuarioSelecionado).child("Snaps")
-        
         let autenticacao = Auth.auth()
-        
         if let idUsuarioLogado = autenticacao.currentUser?.uid{
-            
             let usuarioLogado = usuarios.child(idUsuarioLogado)
             usuarioLogado.observeSingleEvent(of: DataEventType.value) { (snapshot) in
-                
                 let dados = snapshot.value as? NSDictionary
-                
                 let snap = [
                     "de": dados?["email"] as! String,
                     "nome": dados?["nome"] as! String,
@@ -94,10 +91,10 @@ class UsuariosTableViewController: UITableViewController {
                 ]
                 snaps.childByAutoId().setValue(snap)
             }
-            
         }
-        //        navigationController?.popViewController(animated: true)
-        let viewController = TabelaSnapsTableViewController(nibName: "TabelaSnapsTableViewController", bundle: nil)
-        present(viewController, animated: true, completion: nil)    }
-    
+//        let tabelaSnaps = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
+//        self.navigationController?.pushViewController(tabelaSnaps, animated: true)
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
 }
