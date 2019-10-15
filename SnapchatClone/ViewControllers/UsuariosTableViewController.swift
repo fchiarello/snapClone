@@ -95,6 +95,7 @@ class UsuariosTableViewController: UITableViewController {
 //        let tabelaSnaps = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
 //        self.navigationController?.pushViewController(tabelaSnaps, animated: true)
         
-        navigationController?.popToRootViewController(animated: true)
+        let voltarSnaps = TabelaSnapsTableViewController()
+
     }
 }

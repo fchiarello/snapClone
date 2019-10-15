@@ -64,7 +64,7 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
     func presentNewScreen() {
         let usuariosTableView = UsuariosTableViewController.init(nibName: "UsuariosTableViewController", bundle: nil)
         
-        self.navigationController?.pushViewController(viewController: usuariosTableView, animated: true, completion: {
+        self.navigationController?.popViewController(viewController: usuariosTableView, animated: true, completion: {
             usuariosTableView.descricao = self.descricaoImagem.text!
             usuariosTableView.urlImagem = self.urlRecuperada as String
             usuariosTableView.idImagem = self.idImagem as String
@@ -99,7 +99,7 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
 
 extension UINavigationController {
 
-  public func pushViewController(viewController: UIViewController,
+  public func popViewController(viewController: UIViewController,
                                  animated: Bool,
                                  completion: (() -> Void)?) {
     CATransaction.begin()
