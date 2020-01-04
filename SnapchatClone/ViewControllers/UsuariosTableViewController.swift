@@ -49,12 +49,10 @@ class UsuariosTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.usuarios.count
     }
     
@@ -92,10 +90,7 @@ class UsuariosTableViewController: UITableViewController {
                 snaps.childByAutoId().setValue(snap)
             }
         }
-//        let tabelaSnaps = TabelaSnapsTableViewController.init(nibName: "TabelaSnapsTableViewController", bundle: nil)
-//        self.navigationController?.pushViewController(tabelaSnaps, animated: true)
-        
-        let voltarSnaps = TabelaSnapsTableViewController()
-
+        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

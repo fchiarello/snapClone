@@ -18,7 +18,7 @@ class TabelaSnapsTableViewController: UITableViewController {
         setuoBarButtonItems()
         self.title = "Snaps"
         recuperaUsuario()
-        
+        self.tableView.reloadData()
     }
     
     func recuperaUsuario() {
@@ -44,8 +44,7 @@ class TabelaSnapsTableViewController: UITableViewController {
                 snap.idImagem = dados?["idImagem"] as! String
                 
                 self.snaps.append(snap)
-                print(self.snaps)
-                
+                self.tableView.reloadData()
             }
         }
     }
@@ -85,13 +84,36 @@ class TabelaSnapsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        
+        let totalSnaps = snaps.count
+        
+        if totalSnaps == 0 {
+            return 1
+        }else {
+            return snaps.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "celulaSnap")
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaSnap", for: indexPath)
+        
+        let totalSnaps =  snaps.count
+        
+        if totalSnaps == 0 {
+            cell.textLabel?.text = "Nenhum Snap pra você :)"
+        }else{
+            let snap = self.snaps[ indexPath.row ]
+            cell.textLabel?.text = snap.nome
+        }
+        return cell
     }
     
 }

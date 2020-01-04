@@ -9,18 +9,10 @@
 import Foundation
 
 class Snaps {
-    
     var identificador = ""
     var nome = ""
     var de = ""
     var descricao = ""
     var urlImagem = ""
     var idImagem = ""
-    
-    
-    
-    
-    
-    
-    
 }

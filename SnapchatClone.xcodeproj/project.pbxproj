@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		918EDA7416BB92392E594AF3 /* Pods_SnapchatClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126084B3B76B0732C2C0CFB9 /* Pods_SnapchatClone.framework */; };
+		927BB89E23897ECB000116F5 /* CelulaSnapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BB89C23897ECB000116F5 /* CelulaSnapTableViewCell.swift */; };
+		927BB89F23897ECB000116F5 /* CelulaSnapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927BB89D23897ECB000116F5 /* CelulaSnapTableViewCell.xib */; };
 		C93F26162332A83600BD318D /* TabelaSnapsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */; };
 		C93F26172332A83600BD318D /* TabelaSnapsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */; };
 		C93F261E2332BBF900BD318D /* SelecionaFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		126084B3B76B0732C2C0CFB9 /* Pods_SnapchatClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapchatClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D368644A560C0112062B6C7 /* Pods-SnapchatClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapchatClone.release.xcconfig"; path = "Target Support Files/Pods-SnapchatClone/Pods-SnapchatClone.release.xcconfig"; sourceTree = "<group>"; };
+		927BB89C23897ECB000116F5 /* CelulaSnapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelulaSnapTableViewCell.swift; sourceTree = "<group>"; };
+		927BB89D23897ECB000116F5 /* CelulaSnapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelulaSnapTableViewCell.xib; sourceTree = "<group>"; };
 		98357FCE3677AA97EF92BDA5 /* Pods-SnapchatClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapchatClone.debug.xcconfig"; path = "Target Support Files/Pods-SnapchatClone/Pods-SnapchatClone.debug.xcconfig"; sourceTree = "<group>"; };
 		C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelaSnapsTableViewController.swift; sourceTree = "<group>"; };
 		C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabelaSnapsTableViewController.xib; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				C94A75A2233BA37100AB8CCE /* Usuario.swift */,
 				C94A75A6233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift */,
 				C9B764FB234D185B003EA742 /* Snaps.swift */,
+				927BB89C23897ECB000116F5 /* CelulaSnapTableViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				C94A75A7233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.xib */,
 				C99FAB13232FCF32000B478E /* LaunchScreen.storyboard */,
 				C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */,
+				927BB89D23897ECB000116F5 /* CelulaSnapTableViewCell.xib */,
 				C93F261D2332BBF900BD318D /* SelecionaFotoViewController.xib */,
 				C952CA73232FF071009A4126 /* CadastroViewController.xib */,
 				C952CA6F232FF042009A4126 /* LoginViewController.xib */,
@@ -232,6 +238,7 @@
 				C93F261F2332BBF900BD318D /* SelecionaFotoViewController.xib in Resources */,
 				C94A75A1233B93B700AB8CCE /* UsuariosTableViewController.xib in Resources */,
 				C99FAB15232FCF32000B478E /* LaunchScreen.storyboard in Resources */,
+				927BB89F23897ECB000116F5 /* CelulaSnapTableViewCell.xib in Resources */,
 				C952CA69232FDED5009A4126 /* GoogleService-Info.plist in Resources */,
 				C952CA75232FF071009A4126 /* CadastroViewController.xib in Resources */,
 				C99FAB12232FCF32000B478E /* Assets.xcassets in Resources */,
@@ -300,6 +307,7 @@
 				C93F261E2332BBF900BD318D /* SelecionaFotoViewController.swift in Sources */,
 				C952CA74232FF071009A4126 /* CadastroViewController.swift in Sources */,
 				C973BE2B23394CB70009ED6D /* Alerta.swift in Sources */,
+				927BB89E23897ECB000116F5 /* CelulaSnapTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
