@@ -8,10 +8,11 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
-class TabelaSnapsTableViewController: UITableViewController {
+class TabelaSnapsTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var snaps: [Snaps] = []
+    var snap: [Snaps] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,40 @@ class TabelaSnapsTableViewController: UITableViewController {
         self.title = "Snaps"
         recuperaUsuario()
         self.tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+//        removeSnapDataBase()
+    }
+    
+    func removeSnapDataBase() {
+        let autenticacao = Auth.auth()
+        let snap = Snaps()
+        
+        
+        //Remove Snap
+        if let idUsuarioLogado = autenticacao.currentUser?.uid {
+            let database = Database.database().reference()
+            let usuarios = database.child("usuarios")
+            let snaps = usuarios.child(idUsuarioLogado).child("Snaps")
+            
+            snaps.child(snap.identificador).removeValue()
+        }
+        
+        //Remove Imagem do Banco
+        let storage = Storage.storage().reference()
+        let imagens = storage.child("imagens")
+        
+        imagens.child("\(snap.idImagem).jpg").delete { (error) in
+            if error == nil {
+                print("Imagem Excluída!!")
+
+            }else {
+                print("Erro ao excluir!")
+
+            }
+        }
+        
     }
     
     func recuperaUsuario() {
@@ -31,7 +66,7 @@ class TabelaSnapsTableViewController: UITableViewController {
             let snaps = usuarios.child(idUsuarioLogado).child("Snaps")
             
             snaps.observe(DataEventType.childAdded) { (snapshot) in
-            
+                
                 let dados = snapshot.value as? NSDictionary
                 
                 let snap = Snaps()
@@ -43,7 +78,7 @@ class TabelaSnapsTableViewController: UITableViewController {
                 snap.urlImagem = dados?["urlImagem"] as! String
                 snap.idImagem = dados?["idImagem"] as! String
                 
-                self.snaps.append(snap)
+                self.snap.append(snap)
                 self.tableView.reloadData()
             }
         }
@@ -63,7 +98,6 @@ class TabelaSnapsTableViewController: UITableViewController {
         let autenticacao = Auth.auth()
         do {
             try autenticacao.signOut()
-            //            let telaInicial = ViewController.init()
             self.navigationController?.popViewController(animated: true)
         } catch {
             print("Erro ao deslogar!")
@@ -90,30 +124,68 @@ class TabelaSnapsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        let totalSnaps = snaps.count
+        let totalSnaps = snap.count
         
         if totalSnaps == 0 {
             return 1
         }else {
-            return snaps.count
+            return snap.count
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "celulaSnap")
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "celulaSnap", for: indexPath)
         
-        let totalSnaps =  snaps.count
+        let totalSnaps =  snap.count
         
         if totalSnaps == 0 {
             cell.textLabel?.text = "Nenhum Snap pra você :)"
         }else{
-            let snap = self.snaps[ indexPath.row ]
+            let snap = self.snap[ indexPath.row ]
             cell.textLabel?.text = snap.nome
         }
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let totalSnaps = snap.count
+        
+        if totalSnaps > 0 {
+            let detalhesViewController = DetalhesViewController.init(nibName: "DetalhesViewController", bundle: nil)
+            self.navigationController?.pushViewController(viewController: detalhesViewController, animated: true, completion: {
+                                
+                let snap = self.snap[ indexPath.row ]
+                
+                detalhesViewController.descricao.text = snap.descricao
+                let urlImagem = URL(string: snap.urlImagem)
+                
+                let downloadImagem = detalhesViewController.imagem
+                
+                downloadImagem?.sd_setImage(with: urlImagem, completed: { (image, error, cache, url) in
+                    print("Imagem exibida")
+                })
+                
+            })
+        }
+    }
 }
+
+extension UINavigationController {
+
+  public func pushViewController(viewController: UIViewController,
+                                 animated: Bool,
+                                 completion: (() -> Void)?) {
+    CATransaction.begin()
+    CATransaction.setCompletionBlock(completion)
+    pushViewController(viewController, animated: animated)
+    CATransaction.commit()
+  }
+
+}
+
+
+
+

@@ -10,6 +10,8 @@
 		918EDA7416BB92392E594AF3 /* Pods_SnapchatClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126084B3B76B0732C2C0CFB9 /* Pods_SnapchatClone.framework */; };
 		927BB89E23897ECB000116F5 /* CelulaSnapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BB89C23897ECB000116F5 /* CelulaSnapTableViewCell.swift */; };
 		927BB89F23897ECB000116F5 /* CelulaSnapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927BB89D23897ECB000116F5 /* CelulaSnapTableViewCell.xib */; };
+		92BED07023C0ECFF0093C865 /* DetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED06E23C0ECFF0093C865 /* DetalhesViewController.swift */; };
+		92BED07123C0ECFF0093C865 /* DetalhesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BED06F23C0ECFF0093C865 /* DetalhesViewController.xib */; };
 		C93F26162332A83600BD318D /* TabelaSnapsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */; };
 		C93F26172332A83600BD318D /* TabelaSnapsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */; };
 		C93F261E2332BBF900BD318D /* SelecionaFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */; };
@@ -38,6 +40,8 @@
 		4D368644A560C0112062B6C7 /* Pods-SnapchatClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapchatClone.release.xcconfig"; path = "Target Support Files/Pods-SnapchatClone/Pods-SnapchatClone.release.xcconfig"; sourceTree = "<group>"; };
 		927BB89C23897ECB000116F5 /* CelulaSnapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelulaSnapTableViewCell.swift; sourceTree = "<group>"; };
 		927BB89D23897ECB000116F5 /* CelulaSnapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelulaSnapTableViewCell.xib; sourceTree = "<group>"; };
+		92BED06E23C0ECFF0093C865 /* DetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesViewController.swift; sourceTree = "<group>"; };
+		92BED06F23C0ECFF0093C865 /* DetalhesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetalhesViewController.xib; sourceTree = "<group>"; };
 		98357FCE3677AA97EF92BDA5 /* Pods-SnapchatClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapchatClone.debug.xcconfig"; path = "Target Support Files/Pods-SnapchatClone/Pods-SnapchatClone.debug.xcconfig"; sourceTree = "<group>"; };
 		C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelaSnapsTableViewController.swift; sourceTree = "<group>"; };
 		C93F26152332A83600BD318D /* TabelaSnapsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabelaSnapsTableViewController.xib; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				C93F26142332A83600BD318D /* TabelaSnapsTableViewController.swift */,
 				C93F261C2332BBF900BD318D /* SelecionaFotoViewController.swift */,
 				C94A759E233B93B700AB8CCE /* UsuariosTableViewController.swift */,
+				92BED06E23C0ECFF0093C865 /* DetalhesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 		C973BE2E233951660009ED6D /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				92BED06F23C0ECFF0093C865 /* DetalhesViewController.xib */,
 				C94A759F233B93B700AB8CCE /* UsuariosTableViewController.xib */,
 				C94A75A7233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.xib */,
 				C99FAB13232FCF32000B478E /* LaunchScreen.storyboard */,
@@ -233,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92BED07123C0ECFF0093C865 /* DetalhesViewController.xib in Resources */,
 				C93F26172332A83600BD318D /* TabelaSnapsTableViewController.xib in Resources */,
 				C952CA71232FF042009A4126 /* LoginViewController.xib in Resources */,
 				C93F261F2332BBF900BD318D /* SelecionaFotoViewController.xib in Resources */,
@@ -297,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C952CA70232FF042009A4126 /* LoginViewController.swift in Sources */,
+				92BED07023C0ECFF0093C865 /* DetalhesViewController.swift in Sources */,
 				C99FAB0D232FCF30000B478E /* ViewController.swift in Sources */,
 				C94A75A8233BB24C00AB8CCE /* CelulaUsuariosTableViewCell.swift in Sources */,
 				C94A75A0233B93B700AB8CCE /* UsuariosTableViewController.swift in Sources */,

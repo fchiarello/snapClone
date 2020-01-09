@@ -12,5 +12,6 @@ target 'SnapchatClone' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'UINavigationControllerWithCompletionBlock'
+  pod 'SDWebImage'
 
 end
