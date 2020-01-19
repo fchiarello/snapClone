@@ -22,39 +22,7 @@ class TabelaSnapsTableViewController: UITableViewController, UIImagePickerContro
         self.tableView.reloadData()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-//        removeSnapDataBase()
-    }
     
-    func removeSnapDataBase() {
-        let autenticacao = Auth.auth()
-        let snap = Snaps()
-        
-        
-        //Remove Snap
-        if let idUsuarioLogado = autenticacao.currentUser?.uid {
-            let database = Database.database().reference()
-            let usuarios = database.child("usuarios")
-            let snaps = usuarios.child(idUsuarioLogado).child("Snaps")
-            
-            snaps.child(snap.identificador).removeValue()
-        }
-        
-        //Remove Imagem do Banco
-        let storage = Storage.storage().reference()
-        let imagens = storage.child("imagens")
-        
-        imagens.child("\(snap.idImagem).jpg").delete { (error) in
-            if error == nil {
-                print("Imagem Excluída!!")
-
-            }else {
-                print("Erro ao excluir!")
-
-            }
-        }
-        
-    }
     
     func recuperaUsuario() {
         let autenticacao = Auth.auth()
@@ -68,17 +36,33 @@ class TabelaSnapsTableViewController: UITableViewController, UIImagePickerContro
             snaps.observe(DataEventType.childAdded) { (snapshot) in
                 
                 let dados = snapshot.value as? NSDictionary
-                
                 let snap = Snaps()
                 
-                snap.descricao = snapshot.key
+                snap.identificador = snapshot.key
                 snap.nome = dados?["nome"] as! String
                 snap.de = dados?["de"] as! String
                 snap.descricao = dados?["descricao"] as! String
                 snap.urlImagem = dados?["urlImagem"] as! String
                 snap.idImagem = dados?["idImagem"] as! String
                 
+                
                 self.snap.append(snap)
+                self.tableView.reloadData()
+            }
+            
+            snaps.observe(DataEventType.childRemoved) { (snapshot) in
+                print(snapshot)
+                
+                var indice = 0
+                for snap in self.snap {
+                    print("Índice atual" + String(indice))
+                    
+                    if snap.identificador == snapshot.key {
+                        self.snap.remove(at: indice)
+                        print("Snap REmovido" + snap.identificador)
+                    }
+                    indice = indice + 1
+                }
                 self.tableView.reloadData()
             }
         }
@@ -108,8 +92,6 @@ class TabelaSnapsTableViewController: UITableViewController, UIImagePickerContro
         let snapsViewController = SelecionaFotoViewController.init(nibName: "SelecionaFotoViewController", bundle: nil)
         self.navigationController?.pushViewController(snapsViewController, animated: true)
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -156,18 +138,24 @@ class TabelaSnapsTableViewController: UITableViewController, UIImagePickerContro
         if totalSnaps > 0 {
             let detalhesViewController = DetalhesViewController.init(nibName: "DetalhesViewController", bundle: nil)
             self.navigationController?.pushViewController(viewController: detalhesViewController, animated: true, completion: {
-                                
+                
                 let snap = self.snap[ indexPath.row ]
+                print(snap.identificador)
+                
                 
                 detalhesViewController.descricao.text = snap.descricao
                 let urlImagem = URL(string: snap.urlImagem)
                 
                 let downloadImagem = detalhesViewController.imagem
                 
-                downloadImagem?.sd_setImage(with: urlImagem, completed: { (image, error, cache, url) in
-                    print("Imagem exibida")
-                })
+                detalhesViewController.identificador = snap.identificador
+                detalhesViewController.idImagem = snap.idImagem
                 
+                downloadImagem?.sd_setImage(with: urlImagem, completed: { (image, error, cache, url) in
+                    if error == nil {
+                        print("imagem exibida")
+                    }
+                })
             })
         }
     }

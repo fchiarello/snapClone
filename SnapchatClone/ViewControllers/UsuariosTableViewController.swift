@@ -15,6 +15,7 @@ class UsuariosTableViewController: UITableViewController {
     var urlImagem = ""
     var descricao = ""
     var idImagem = ""
+    var identificador = ""
     
     
     
@@ -86,6 +87,7 @@ class UsuariosTableViewController: UITableViewController {
                     "descricao": self.descricao,
                     "urlImagem": self.urlImagem as String,
                     "idImagem": self.idImagem as String,
+                    "identificador": self.identificador as String
                 ]
                 snaps.childByAutoId().setValue(snap)
             }
@@ -94,3 +96,4 @@ class UsuariosTableViewController: UITableViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+

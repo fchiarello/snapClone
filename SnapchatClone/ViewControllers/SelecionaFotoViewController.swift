@@ -61,6 +61,10 @@ class SelecionaFotoViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     func presentNewScreen() {
         let usuariosTableView = UsuariosTableViewController.init(nibName: "UsuariosTableViewController", bundle: nil)
         
